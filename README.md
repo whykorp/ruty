@@ -1,2 +1,2 @@
-# ruty
-Un outil personnel pour s'organiser
+# Ruty
+**Un outil personnel pour s'organiser**
