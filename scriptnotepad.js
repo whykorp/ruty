@@ -187,20 +187,17 @@ noteList.addEventListener("click", (e) => {
 // Appel initial pour afficher la vue initiale
 showInitialView();
 
-/*// Gérer le clic sur le bouton "Ajouter une note"
+// Gérez le clic sur le bouton "Ajouter une note"
 addNoteButton.addEventListener("click", () => {
-    const folderName = prompt("Nom du dossier pour la nouvelle note :");
-    if (folderName) {
-        const folder = data.find((item) => item.folder === folderName);
-        if (folder) {
-            const noteName = prompt("Nom de la nouvelle note :");
-            if (noteName) {
-                // Ajouter la nouvelle note au dossier
-                folder.notes.push(noteName);
-                displayNotes(folderName);
-            }
-        } else {
-            alert("Le dossier spécifié n'existe pas.");
+    const parentFolder = data.find((item) => item.folder === ActiveFolder); // Utilisez ActiveFolder ici
+    if (parentFolder) {
+        const noteName = prompt("Nom de la nouvelle note :");
+        if (noteName) {
+            // Ajouter la nouvelle note au dossier actif
+            parentFolder.notes.push(noteName);
+            displayNotes(ActiveFolder); // Mettez à jour la liste des notes du dossier actif
         }
+    } else {
+        alert("Erreur : le dossier actif n'a pas été trouvé.");
     }
-});*/
+});
