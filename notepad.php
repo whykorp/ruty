@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav">
                     <img src="todo.png">
-                    <a>To-Do List</a>
+                    <a>ToDo List</a>
                 </li>
                 <li class="nav">
                     <img src="notepad.png">
