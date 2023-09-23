@@ -194,13 +194,32 @@ showInitialView();
 
 // Gérez le clic sur le bouton "Ajouter une note"
 addNoteButton.addEventListener("click", () => {
-    const parentFolder = data.find((item) => item.folder === ActiveFolder); // Utilisez ActiveFolder ici
+    const parentFolder = ActiveFolder; // Utilisez ActiveFolder ici
     if (parentFolder) {
         const noteName = prompt("Nom de la nouvelle note :");
         if (noteName) {
-            // Ajouter la nouvelle note au dossier actif
-            parentFolder.notes.push(noteName);
-            displayNotes(ActiveFolder); // Mettez à jour la liste des notes du dossier actif
+            // Envoyer une requête au serveur pour ajouter la nouvelle note
+            const formData = new FormData();
+            formData.append("addNote", "true");
+            formData.append("folderName", parentFolder);
+            formData.append("noteContent", noteName);
+
+            fetch("notepad.php", {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === "Nouvelle note ajoutée avec succès.") {
+                    // Mettez à jour la liste des notes du dossier actif
+                    displayNotes(parentFolder);
+                } else {
+                    alert("Erreur : " + data);
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'ajout de la note : " + error);
+            });
         }
     } else {
         alert("Erreur : le dossier actif n'a pas été trouvé.");
@@ -227,11 +246,39 @@ document.getElementById("underline-button").addEventListener("click", () => {
 
 // Vous pouvez ajouter d'autres boutons et styles selon vos besoins
 
-// Gérez la sauvegarde du contenu
+// Gérez la mise à jour du contenu d'une note
 function saveNoteContent() {
-    const content = textEditor.innerHTML;
-    // Sauvegardez le contenu où vous le souhaitez (par exemple, dans une note)
-}
+    const selectedNote = noteList.querySelector(".selected");
+    if (selectedNote) {
+        const noteId = selectedNote.getAttribute("data-note-id");
+        const newNoteContent = textEditor.innerHTML;
 
+        // Envoyer une requête au serveur pour mettre à jour le contenu de la note
+        const formData = new FormData();
+        formData.append("updateNote", "true");
+        formData.append("noteId", noteId);
+        formData.append("newNoteContent", newNoteContent);
+
+        fetch("notepad.php", {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data === "Contenu de la note mis à jour avec succès.") {
+                // Mettez à jour la liste des notes du dossier actif
+                displayNotes(ActiveFolder);
+            } else {
+                alert("Erreur : " + data);
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors de la mise à jour de la note : " + error);
+        });
+    }
+}
 // Gérez la modification du contenu de la zone de texte éditable
 textEditor.addEventListener("input", saveNoteContent);
+
+// Appel initial pour afficher la vue initiale
+showInitialView();
