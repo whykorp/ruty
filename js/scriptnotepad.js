@@ -24,9 +24,7 @@ const folderList = document.getElementById("folder-list");
 const noteList = document.getElementById("note-list");
 const textEditor = document.getElementById("text-editor");
 const backButton = document.getElementById("back-button");
-const addNoteButton = document.getElementById("add-note-button");
 const textEditorContainer = document.getElementById("text-editor-container");
-const addFolderButton = document.getElementById("add-folder");
 
 // Exemple de données de dossiers et de notes (vous pouvez les remplacer par des données réelles)
 const data = [
@@ -86,6 +84,11 @@ folderList.addEventListener("click", (e) => {
     }
 });
 
+
+// Récupérer les éléments boutons
+const addFolderButton = document.getElementById("add-folder");
+const addNoteButton = document.getElementById("add-note");
+
 // Fonction d'ajout de dossier
 function AddFolder(){
     const folderName = prompt("Entrez le nom du dossier")
@@ -103,6 +106,7 @@ function showInitialView() {
     folderList.style.display = "block";
     noteList.style.display = "none";
     backButton.style.display = "none";
+    addNoteButton.style.display ="none";
     textEditorContainer.style.display = "none"; // Masquez le conteneur du traitement de texte
 }
 
@@ -112,7 +116,7 @@ function showNotesInFolder(folderName) {
     noteList.style.display = "block";
     backButton.style.display = "block";
     addNoteButton.style.display = "block";
-    textEditorContainer.style.display = "block"; // Affichez le conteneur du traitement de texte
+    textEditorContainer.style.display = "none";
 
     // Affichez ici les notes du dossier sélectionné
 }
@@ -140,6 +144,7 @@ function displayNoteContent(noteName) {
         if (noteIndex !== -1) {
             const noteContent = folder.notes[noteIndex];
             textEditor.textContent = noteContent;
+            textEditorContainer.style.display = "block";
         }
     }
 }
