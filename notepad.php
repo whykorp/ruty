@@ -70,10 +70,9 @@
                 </ul>
             </div>
         </div>
-        <div id="text-editor-container">          
-            <!-- Ajoutez une zone de texte éditable pour le traitement de texte -->
+        <div id="text-editor-container">
             <div id="text-editor" contenteditable="true"></div>
-        </div>
+        </div>>
     </div>
 </body>
 </html>

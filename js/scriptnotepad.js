@@ -204,3 +204,32 @@ addNoteButton.addEventListener("click", () => {
         alert("Erreur : le dossier actif n'a pas été trouvé.");
     }
 });
+
+// Fonction pour appliquer le style sélectionné au texte sélectionné
+function applyStyle(style, value) {
+    document.execCommand(style, false, value);
+}
+
+// Gérez les boutons de mise en forme (par exemple, gras, italique, souligné)
+document.getElementById("bold-button").addEventListener("click", () => {
+    applyStyle("bold");
+});
+
+document.getElementById("italic-button").addEventListener("click", () => {
+    applyStyle("italic");
+});
+
+document.getElementById("underline-button").addEventListener("click", () => {
+    applyStyle("underline");
+});
+
+// Vous pouvez ajouter d'autres boutons et styles selon vos besoins
+
+// Gérez la sauvegarde du contenu
+function saveNoteContent() {
+    const content = textEditor.innerHTML;
+    // Sauvegardez le contenu où vous le souhaitez (par exemple, dans une note)
+}
+
+// Gérez la modification du contenu de la zone de texte éditable
+textEditor.addEventListener("input", saveNoteContent);
