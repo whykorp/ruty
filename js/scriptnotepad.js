@@ -110,7 +110,7 @@ addFolderButton.addEventListener("click", () => {
 // Gérez l'affichage initial de la page
 function showInitialView() {
     folderList.style.display = "block";
-    noteList.style.display = "none";
+    noteList.style.left = "-400px";
     backButton.style.display = "none";
     addNoteButton.style.display ="none";
     textEditorContainer.style.display = "none"; // Masquez le conteneur du traitement de texte
@@ -119,7 +119,7 @@ function showInitialView() {
 // Gérez l'affichage des notes dans un dossier
 function showNotesInFolder(folderName) {
     folderList.style.display = "none";
-    noteList.style.display = "block";
+    noteList.style.left = "400px";
     backButton.style.display = "block";
     addNoteButton.style.display = "block";
     textEditorContainer.style.display = "none";
