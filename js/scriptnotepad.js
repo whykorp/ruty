@@ -61,6 +61,7 @@ function displayNotes(folderName) {
         folder.notes.forEach((note) => {
             const noteItem = document.createElement("li");
             noteItem.textContent = note;
+            noteItem.classList.add("note"); // Ajoutez la classe "note"
             noteList.appendChild(noteItem);
         });
     }
@@ -81,6 +82,7 @@ folderList.addEventListener("click", (e) => {
         const folderName = e.target.textContent;
         displayNotes(folderName);
         RefreshActiveFolder(folderName);
+        showNotesInFolder(folderName);
     }
 });
 
