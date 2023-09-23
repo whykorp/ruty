@@ -10,37 +10,7 @@
             <img src="img/logo.png" alt="Logo Ruty" id="menu-trigger">
             <h1 class="name">Ruty</h1>
         </header>
-        <div id="overlay"></div>
-        <div id="menu" class="hidden">
-            <nav class="nav">
-                <li class="nav">
-                    <img src="img/home.png">
-                    <a href="#">Home</a>
-                </li>
-                <li class="nav">
-                    <img src="img/todo.png">
-                    <a href="todo.php">ToDo List</a>
-                </li>
-                <li class="nav">
-                    <img src="img/notepad.png">
-                    <a href="notepad.php">Bloc-Note</a>
-                </li>
-                <li class="nav">
-                    <img src="img/agenda.png">
-                    <a>Agenda</a>
-                </li>
-                <li class="nav">
-                    <img src="img/mails.png">
-                    <a>Boîte Mail</a>
-                </li>
-            </nav>
-            <nav class="nav2">
-                <li class="nav2">
-                    <img src="img/logout.png">
-                    <a href="index.html">Se déconnecter</a>
-                </li>
-            </nav>
-        </div>
+        <?php include 'menunav.php'; ?>
         <div>
             <h2 class="welcome">Bienvenue dans votre espace Noah !</h2>
             <div id="current_date">
