@@ -101,7 +101,7 @@ $conn->close();
     <title>Ruty - Bloc-note</title>
 </head>
 <body>
-	<header id="header">
+    <header id="header">
         <img src="img/logo.png" alt="Logo Ruty" id="menu-trigger">
         <h1 class="welcome">Ruty</h1>
     </header>
