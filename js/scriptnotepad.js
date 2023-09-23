@@ -24,7 +24,9 @@ const folderList = document.getElementById("folder-list");
 const noteList = document.getElementById("note-list");
 const textEditor = document.getElementById("text-editor");
 const backButton = document.getElementById("back-button");
+const addNoteButton = document.getElementById("add-note-button");
 const textEditorContainer = document.getElementById("text-editor-container");
+const addFolderButton = document.getElementById("add-folder");
 
 // Exemple de données de dossiers et de notes (vous pouvez les remplacer par des données réelles)
 const data = [
@@ -84,11 +86,6 @@ folderList.addEventListener("click", (e) => {
     }
 });
 
-
-// Récupérer les éléments boutons
-const addFolderButton = document.getElementById("add-folder");
-const addNoteButton = document.getElementById("add-note");
-
 // Fonction d'ajout de dossier
 function AddFolder(){
     const folderName = prompt("Entrez le nom du dossier")
@@ -114,6 +111,7 @@ function showNotesInFolder(folderName) {
     folderList.style.display = "none";
     noteList.style.display = "block";
     backButton.style.display = "block";
+    addNoteButton.style.display = "block";
     textEditorContainer.style.display = "block"; // Affichez le conteneur du traitement de texte
 
     // Affichez ici les notes du dossier sélectionné
