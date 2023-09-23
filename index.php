@@ -1,12 +1,12 @@
 <html>
     <head>
         <title>Ruty - L'outil multifonction</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="logo.png">        
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="icon" href="img/logo.png">        
     </head>
     <body>
         <header>
-            <img src="logo.png">
+            <img src="img/logo.png">
             <h1 class="Welcome">Bienvenue sur Ruty</h1>
         </header>
         <div class="login">

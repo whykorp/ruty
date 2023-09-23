@@ -2,41 +2,41 @@
     <head>
         <meta charset="UTF-8">
         <title>Ruty - L'outil multifonction</title>
-        <link rel="stylesheet" href="style1.css">
-        <link rel="icon" href="logo.png">        
+        <link rel="stylesheet" href="styles/style1.css">
+        <link rel="icon" href="img/logo.png">        
     </head>
     <body>
         <header id="header">
-            <img src="logo.png" alt="Logo Ruty" id="menu-trigger">
+            <img src="img/logo.png" alt="Logo Ruty" id="menu-trigger">
             <h1 class="name">Ruty</h1>
         </header>
         <div id="overlay"></div>
         <div id="menu" class="hidden">
             <nav class="nav">
                 <li class="nav">
-                    <img src="home.png">
+                    <img src="img/home.png">
                     <a href="#">Home</a>
                 </li>
                 <li class="nav">
-                    <img src="todo.png">
+                    <img src="img/todo.png">
                     <a href="todo.php">ToDo List</a>
                 </li>
                 <li class="nav">
-                    <img src="notepad.png">
+                    <img src="img/notepad.png">
                     <a href="notepad.php">Bloc-Note</a>
                 </li>
                 <li class="nav">
-                    <img src="agenda.png">
+                    <img src="img/agenda.png">
                     <a>Agenda</a>
                 </li>
                 <li class="nav">
-                    <img src="mails.png">
+                    <img src="img/mails.png">
                     <a>Boîte Mail</a>
                 </li>
             </nav>
             <nav class="nav2">
                 <li class="nav2">
-                    <img src="logout.png">
+                    <img src="img/logout.png">
                     <a href="index.html">Se déconnecter</a>
                 </li>
             </nav>
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <script src="script.js" async></script>
+        <script src="js/script.js" async></script>
     </body>
 
 </html>

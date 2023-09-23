@@ -2,14 +2,15 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="img/logo.png"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylenote.css">
-    <script src="scriptnotepad.js" async></script>
+    <link rel="stylesheet" href="styles/stylenote.css">
+    <script src="js/scriptnotepad.js" async></script>
     <title>Ruty - Bloc-note</title>
 </head>
 <body>
 	<header id="header">
-        <img src="logo.png" alt="Logo Ruty" id="menu-trigger">
+        <img src="img/logo.png" alt="Logo Ruty" id="menu-trigger">
         <h1 class="welcome">Ruty</h1>
     </header>
     <!-- Menu de navigation -->
@@ -17,29 +18,29 @@
     <div id="menu" class="hidden">
         <nav class="nav">
             <li class="nav">
-                <img src="home.png">
+                <img src="img/home.png">
                 <a href="home.php">Home</a>
             </li>
             <li class="nav">
-                <img src="todo.png">
-                <a>ToDo List</a>
+                <img src="img/todo.png">
+                <a href="todo.php">ToDo List</a>
             </li>
             <li class="nav">
-                <img src="notepad.png">
+                <img src="img/notepad.png">
                 <a href="notepad.php">Bloc-Note</a>
             </li>
             <li class="nav">
-                <img src="agenda.png">
+                <img src="img/agenda.png">
                 <a>Agenda</a>
             </li>
             <li class="nav">
-                <img src="mails.png">
+                <img src="img/mails.png">
                 <a>Boîte Mail</a>
             </li>
         </nav>
         <nav class="nav2">
             <li class="nav2">
-                <img src="logout.png">
+                <img src="img/logout.png">
                 <a href="index.php">Se déconnecter</a>
             </li>
         </nav>
