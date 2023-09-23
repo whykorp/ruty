@@ -9,41 +9,41 @@
 </head>
 <body>
 	<header id="header">
-            <img src="logo.png" alt="Logo Ruty" id="menu-trigger">
-            <h1 class="welcome">Ruty</h1>
-        </header>
-        <!-- Menu de navigation -->
-        <div id="overlay"></div>
-        <div id="menu" class="hidden">
-            <nav class="nav">
-                <li class="nav">
-                    <img src="home.png">
-                    <a href="home.php">Home</a>
-                </li>
-                <li class="nav">
-                    <img src="todo.png">
-                    <a>ToDo List</a>
-                </li>
-                <li class="nav">
-                    <img src="notepad.png">
-                    <a href="notepad.php">Bloc-Note</a>
-                </li>
-                <li class="nav">
-                    <img src="agenda.png">
-                    <a>Agenda</a>
-                </li>
-                <li class="nav">
-                    <img src="mails.png">
-                    <a>Boîte Mail</a>
-                </li>
-            </nav>
-            <nav class="nav2">
-                <li class="nav2">
-                    <img src="logout.png">
-                    <a href="index.php">Se déconnecter</a>
-                </li>
-            </nav>
-        </div>
+        <img src="logo.png" alt="Logo Ruty" id="menu-trigger">
+        <h1 class="welcome">Ruty</h1>
+    </header>
+    <!-- Menu de navigation -->
+    <div id="overlay"></div>
+    <div id="menu" class="hidden">
+        <nav class="nav">
+            <li class="nav">
+                <img src="home.png">
+                <a href="home.php">Home</a>
+            </li>
+            <li class="nav">
+                <img src="todo.png">
+                <a>ToDo List</a>
+            </li>
+            <li class="nav">
+                <img src="notepad.png">
+                <a href="notepad.php">Bloc-Note</a>
+            </li>
+            <li class="nav">
+                <img src="agenda.png">
+                <a>Agenda</a>
+            </li>
+            <li class="nav">
+                <img src="mails.png">
+                <a>Boîte Mail</a>
+            </li>
+        </nav>
+        <nav class="nav2">
+            <li class="nav2">
+                <img src="logout.png">
+                <a href="index.php">Se déconnecter</a>
+            </li>
+        </nav>
+    </div>
     <div id="app">
         <div id="sidebar">
             <div class="folders">
