@@ -76,13 +76,13 @@ function RefreshActiveFolder(folderName){
     document.getElementById("ActiveFolderInfo").innerHTML = ActiveFolder;
 }
 
-// Gérer le clic sur les dossiers
+// Gérez le clic sur les dossiers
 folderList.addEventListener("click", (e) => {
     if (e.target.classList.contains("folder")) {
         const folderName = e.target.textContent;
-        displayNotes(folderName);
-        RefreshActiveFolder(folderName);
-        showNotesInFolder(folderName);
+        displayNotes(folderName); // Affichez les notes du dossier sélectionné
+        RefreshActiveFolder(folderName); // Mettez à jour le dossier actif
+        showNotesInFolder(folderName); // Affichez les notes du dossier
     }
 });
 
