@@ -26,18 +26,6 @@ const textEditor = document.getElementById("text-editor");
 const backButton = document.getElementById("back-button");
 const textEditorContainer = document.getElementById("text-editor-container");
 
-// Exemple de données de dossiers et de notes (vous pouvez les remplacer par des données réelles)
-const data = [
-    {
-        folder: "Dossier 1",
-        notes: ["Note 1 test", "Note 2"]
-    },
-    {
-        folder: "Dossier 2",
-        notes: ["Note 3", "Note 4"]
-    }
-];
-
 // Fonction pour afficher les dossiers
 function displayFolders() {
     folderList.innerHTML = ""; // Efface la liste des dossiers actuels
@@ -55,20 +43,22 @@ function displayFolders() {
 function displayNotes(folderName) {
     noteList.innerHTML = ""; // Efface la liste des notes actuelles
 
-    const folder = data.find((item) => item.folder === folderName);
+    const folderpath = 'notepad/contents/${folderName}/'; // Défini le chemin vers les notes
 
-    if (folder && folder.notes) {
-        folder.notes.forEach((note) => {
-            const noteItem = document.createElement("li");
-            noteItem.textContent = note;
-            noteItem.classList.add("note");
+    const rtfFiles = ["Note_1.rtf", "Note_2.rtf"]; // Essai
 
-            noteItem.addEventListener("click", () => {
-                loadRTFContent(note, folderName);
-            });
-            noteList.appendChild(noteItem);
+    rtfFiles.forEach((rtfFile) => {
+        const noteName = rtfFile.replace(".rtf", ""); // Retire l'extension ".rtf"
+        const noteItem = document.createElement("li"); // Crée la note dans la liste
+        noteItem.textContent = noteName;
+        noteItem.classList.add("note"); // Ajoute la classe "note" ce qui défini l'élément comme une note
+
+        // Gestionnaire d'évenements de clic sur la note
+        noteItem.addEventListener("click", () => {
+            loadRTFContent(noteName, folderName);
         });
-    }
+        noteList.appendChild(noteItem);
+    })
 }
 
 // Afficher les dossiers au chargement de la page
