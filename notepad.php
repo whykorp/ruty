@@ -1,3 +1,95 @@
+<?php
+// Établir une connexion à la base de données (à adapter selon vos paramètres)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "notes_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("La connexion à la base de données a échoué : " . $conn->connect_error);
+}
+
+// Fonction pour afficher la liste des dossiers
+function displayFolders() {
+    global $conn;
+    $sql = "SELECT DISTINCT folder FROM notes";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<li class="folder">' . $row["folder"] . '</li>';
+        }
+    }
+}
+
+// Fonction pour afficher la liste des notes d'un dossier
+function displayNotes($folderName) {
+    global $conn;
+    $sql = "SELECT id, note FROM notes WHERE folder = '$folderName'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<li class="note" data-note-id="' . $row["id"] . '">' . $row["note"] . '</li>';
+        }
+    }
+}
+
+// Gérer l'ajout d'une nouvelle note
+if (isset($_POST["addNote"])) {
+    $folderName = $_POST["folderName"];
+    $noteContent = $_POST["noteContent"];
+
+    // Échapper les données pour éviter les injections SQL
+    $folderName = $conn->real_escape_string($folderName);
+    $noteContent = $conn->real_escape_string($noteContent);
+
+    $sql = "INSERT INTO notes (folder, note) VALUES ('$folderName', '$noteContent')";
+    if ($conn->query($sql) === TRUE) {
+        echo "Nouvelle note ajoutée avec succès.";
+    } else {
+        echo "Erreur lors de l'ajout de la note : " . $conn->error;
+    }
+}
+
+// Gérer la mise à jour du contenu d'une note
+if (isset($_POST["updateNote"])) {
+    $noteId = $_POST["noteId"];
+    $newNoteContent = $_POST["newNoteContent"];
+
+    // Échapper les données pour éviter les injections SQL
+    $noteId = $conn->real_escape_string($noteId);
+    $newNoteContent = $conn->real_escape_string($newNoteContent);
+
+    $sql = "UPDATE notes SET note = '$newNoteContent' WHERE id = $noteId";
+    if ($conn->query($sql) === TRUE) {
+        echo "Contenu de la note mis à jour avec succès.";
+    } else {
+        echo "Erreur lors de la mise à jour de la note : " . $conn->error;
+    }
+}
+
+// Gérer le chargement du contenu d'une note
+if (isset($_POST["loadNote"])) {
+    $noteId = $_POST["noteId"];
+    $sql = "SELECT note FROM notes WHERE id = $noteId";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo $row["note"];
+    } else {
+        echo "Note non trouvée.";
+    }
+}
+
+// Fermer la connexion à la base de données
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
