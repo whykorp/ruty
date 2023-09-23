@@ -97,6 +97,7 @@ $conn->close();
     <link rel="icon" href="img/logo.png"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/stylenote.css">
+    <script src="js/node_modules/rtf/lib/rtf.js"></script>
     <script src="js/scriptnotepad.js" async></script>
     <title>Ruty - Bloc-note</title>
 </head>

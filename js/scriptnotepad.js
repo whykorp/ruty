@@ -138,25 +138,36 @@ backButton.addEventListener("click", () => {
 });
 
 // Fonction pour afficher le traitement de texte dans une note
-function displayNoteContent(noteName) {
-    const folderName = getSelectedFolder();
-    const folder = data.find((item) => item.folder === folderName);
-    if (folder) {
-        const noteIndex = folder.notes.indexOf(noteName);
-        if (noteIndex !== -1) {
-            const noteContent = folder.notes[noteIndex];
-            textEditor.textContent = noteContent;
-            textEditorContainer.style.display = "block";
-        }
-    }
-}
+function displayRTCContent(rtfContent) {
+    const textContent = document.getElementById("text-editor");
+
+    const rtfViewer = new RTFJS.RTF();
+    rtfViewer.setHtml(textEditor);
+    rtfViewer.render(rtfContent);
+};
+
+// Fonction de chargement de fichier RTF
+function loadRTFContent(noteName, ActiveFolder) {
+    const rtfFileURL = 'notepad/contents/${ActiveFolder}/${noteName}.rtf';
+
+    fetch(rtfFileURL)
+        .then((response) => response.text())
+        .then((rtfContent) => {
+            displayRTFContent(rtfContent);
+        })
+        .catch((error) => {
+            console.error("Erreur lors du chargement du fichier RTF : ", error);
+        });
+};
 
 // Gérez le clic sur une note pour afficher son contenu dans le traitement de texte
 noteList.addEventListener("click", (e) => {
     if (e.target.classList.contains("note")) {
         const noteItem = e.target;
         const noteName = noteItem.textContent.trim();
-        displayNoteContent(noteName);
+        
+        // Charger contenu RTF
+        loadRTFContent(noteName, ActiveFolder);
     }
 });
 
