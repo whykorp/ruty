@@ -4,7 +4,7 @@
 
 # Cahier des charges
 
-❌**|ToDo list :**
+❌| ToDo list :
 
     - Créer/Modifier/Supprimer Tâches ❌
     
@@ -16,7 +16,7 @@
     
 
 
-❌**|Agenda :** 
+❌| Agenda :
 
     - Importer/exporter .ical ❌
     
@@ -26,7 +26,7 @@
     
 
 
-⚙️**|Bloc-Note :**
+⚙️| Bloc-Note :
 
     - Améliorer les clics ✅
     
@@ -50,7 +50,7 @@
     
 
 
-⚙️**|Page d'accueil :**
+⚙️| Page d'accueil :
 
     - Afficher les tâches du jour ❌
     
@@ -64,7 +64,7 @@
     
 
 
-⚙️**|WhykIA :** *(Entièrement délégué à Lazare)*
+⚙️| WhykIA : *(Entièrement délégué à Lazare)*
 
     - Se DOCUMENTER ⚙️
     
@@ -78,4 +78,4 @@
     
 
 
-❌**|Boite Mail :** *(A faire en dernier)*
+❌| Boite Mail : *(A faire en dernier)*
