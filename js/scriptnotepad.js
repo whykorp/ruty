@@ -61,7 +61,11 @@ function displayNotes(folderName) {
         folder.notes.forEach((note) => {
             const noteItem = document.createElement("li");
             noteItem.textContent = note;
-            noteItem.classList.add("note"); // Ajoutez la classe "note"
+            noteItem.classList.add("note");
+
+            noteItem.addEventListener("click", () => {
+                loadRTFContent(note, folderName);
+            });
             noteList.appendChild(noteItem);
         });
     }
@@ -147,8 +151,8 @@ function displayRTCContent(rtfContent) {
 };
 
 // Fonction de chargement de fichier RTF
-function loadRTFContent(noteName, ActiveFolder) {
-    const rtfFileURL = 'notepad/contents/${ActiveFolder}/${noteName}.rtf';
+function loadRTFContent(noteName, folderName) {
+    const rtfFileURL = 'notepad/contents/${folderName}/${noteName}.rtf';
 
     fetch(rtfFileURL)
         .then((response) => response.text())
@@ -167,7 +171,7 @@ noteList.addEventListener("click", (e) => {
         const noteName = noteItem.textContent.trim();
         
         // Charger contenu RTF
-        loadRTFContent(noteName, ActiveFolder);
+        loadRTFContent(noteName, folderName);
     }
 });
 
