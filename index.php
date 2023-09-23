@@ -7,7 +7,7 @@
     <body>
         <header>
             <img src="img/logo.png">
-            <h1 class="Welcome">Bienvenue sur Ruty beta</h1>
+            <h1 class="Welcome">Bienvenue sur Ruty</h1>
         </header>
         <div class="login">
             <h2 class="type1">Accéder à son compte Ruty</h2>
