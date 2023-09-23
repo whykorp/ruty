@@ -71,8 +71,14 @@
             </div>
         </div>
         <div id="text-editor-container">
+            <!-- Boutons pour la mise en forme -->
+            <div id="formatting-buttons">
+                <button id="bold-button">Gras</button>
+                <button id="italic-button">Italique</button>
+                <button id="underline-button">Souligné</button>
+            </div>
             <div id="text-editor" contenteditable="true"></div>
-        </div>>
+        </div>
     </div>
 </body>
 </html>
