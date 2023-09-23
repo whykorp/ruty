@@ -30,7 +30,7 @@ const textEditorContainer = document.getElementById("text-editor-container");
 const data = [
     {
         folder: "Dossier 1",
-        notes: ["Note 1", "Note 2"]
+        notes: ["Note 1 test", "Note 2"]
     },
     {
         folder: "Dossier 2",
