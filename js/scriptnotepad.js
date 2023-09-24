@@ -39,6 +39,33 @@ function displayFolders() {
     });
 }
 
+// Fonction pour charger la liste des notes d'un dossier
+function loadNotes(folderName) {
+    fetch(`/api/notes/${folderName}`)
+        .then((response) => response.json())
+        .then((notes) => {
+            // Afficher les notes dans l'interface utilisateur
+            const noteList = document.getElementById('note-list');
+            noteList.innerHTML = '';
+
+            notes.forEach((note) => {
+                const noteItem = document.createElement('li');
+                noteItem.textContent = note.name;
+                noteItem.classList.add('note');
+                noteList.appendChild(noteItem);
+
+                // Ajoutez un gestionnaire d'événements pour charger le contenu RTF au clic
+                noteItem.addEventListener('click', () => {
+                    loadRTFContent(note.rtfFile);
+                });
+            });
+        })
+        .catch((error) => {
+            console.error('Erreur lors du chargement des notes : ', error);
+        });
+}
+
+
 // Fonction pour afficher les notes d'un dossier donné
 function displayNotes(folderName) {
     noteList.innerHTML = ""; // Efface la liste des notes actuelles
