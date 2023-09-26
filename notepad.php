@@ -143,5 +143,32 @@ $conn->close();
             <div id="text-editor" contenteditable="true"></div>
         </div>
     </div>
+    <script>
+        // Fonction pour charger la liste des notes d'un dossier
+        function loadNotes(folderName) {
+            fetch(`/api/notes/${folderName}`)
+                .then((response) => response.json())
+                .then((notes) => {
+                    // Afficher les notes dans l'interface utilisateur
+                    const noteList = document.getElementById('note-list');
+                    noteList.innerHTML = '';
+
+                    notes.forEach((note) => {
+                        const noteItem = document.createElement('li');
+                        noteItem.textContent = note.name;
+                        noteItem.classList.add('note');
+                        noteList.appendChild(noteItem);
+
+                        // Ajoutez un gestionnaire d'événements pour charger le contenu RTF au clic
+                        noteItem.addEventListener('click', () => {
+                            loadRTFContent(note.rtfFile);
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.error('Erreur lors du chargement des notes : ', error);
+                });
+        }
+</script>
 </body>
 </html>
