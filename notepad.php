@@ -159,7 +159,7 @@ $conn->close();
                         noteItem.classList.add('note');
                         noteList.appendChild(noteItem);
 
-                        // Ajoutez un gestionnaire d'événements pour charger le contenu RTF au clic
+                        // Ajoutez un gestionnaire d'événements pour charger le contenu RTF au clic.
                         noteItem.addEventListener('click', () => {
                             loadRTFContent(note.rtfFile);
                         });
